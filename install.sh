@@ -23,7 +23,7 @@ nix-env -iA \
 	nixpkgs.xclip
 
 # stow dotfiles
-# stow git
+stow git
 stow nvim
 stow tmux
 stow zsh
