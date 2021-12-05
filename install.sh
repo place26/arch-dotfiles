@@ -22,6 +22,8 @@ nix-env -iA \
 	nixpkgs.lsd \
 	nixpkgs.xclip
 
+source ~/.nix-profile/etc/profile.d/nix.sh
+
 # stow dotfiles
 stow git
 stow nvim

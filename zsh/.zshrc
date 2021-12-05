@@ -1,5 +1,5 @@
 # use nix
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi 
 
 # export LC_ALL=en_US.UTF-8
 # export LANG=en_US.UTF-8
@@ -74,3 +74,5 @@ source ~/.zsh_plugins.sh
 # starship load
 eval "$(starship init zsh)"
 
+
+if [ -e /home/xupei/.nix-profile/etc/profile.d/nix.sh ]; then . /home/xupei/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
