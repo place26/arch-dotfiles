@@ -73,6 +73,3 @@ source ~/.zsh_plugins.sh
 
 # starship load
 eval "$(starship init zsh)"
-
-
-if [ -e /home/xupei/.nix-profile/etc/profile.d/nix.sh ]; then . /home/xupei/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
