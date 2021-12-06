@@ -20,12 +20,11 @@ endif
 if !isdirectory($HOME."/.config/nvim/undo-dir")
     call mkdir($HOME."/.config/nvim/undo-dir", "", 0700)
 endif
-" set undodir=~/.vim/undo-dir
 set undofile
 
 set encoding=utf-8
 set clipboard=unnamed,unnamedplus               " 외부 clipboard 이용
-" set updatetime=100
+" se updatetime=100
 set number relativenumber                     " with relativenumber, show current number
 
 set showcmd
@@ -47,7 +46,7 @@ set gdefault
 " Other Configurations
 set ruler laststatus=2 showcmd showmode
 set list listchars=trail:»,tab:»-
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 set wrap breakindent
 set title
 
@@ -113,69 +112,67 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Plugin: {{{
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin()
 
-	" Vim Make Pretty:
-	" Plug 'morhetz/gruvbox'
-	Plug 'sainnhe/gruvbox-material'
-	" Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'ryanoasis/vim-devicons'
-    	" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+        " Vim Make Pretty:
+        Plug 'morhetz/gruvbox'
+        Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+        Plug 'ryanoasis/vim-devicons'
 
-	" For rapid install exclude some themes
-    	" Plug 'sainnhe/forest-night'                    " my favorit colorscheme
-	" Plug 'nightsense/nemo'                         " theme
-	" Plug 'nightsense/forgotten'
-	" Plug 'yuttie/hydrangea-vim'                    " theme
-	" Plug 'rhysd/vim-color-spring-night'            " theme
+        " For rapid install exclude some themes
+    Plug 'sainnhe/forest-night'                    " my favorit colorscheme
+        Plug 'nightsense/nemo'                         " theme
+        Plug 'nightsense/forgotten'
+        Plug 'yuttie/hydrangea-vim'                    " theme
+        Plug 'rhysd/vim-color-spring-night'            " theme
 
-	Plug 'mhinz/vim-startify'                        " fancy start screen for vim
-	" Plug 'junegunn/goyo.vim'
-	" Plug 'junegunn/limelight.vim'
-	" Plug 'junegunn/vim-journal'
-	
-	" Shell:
-	Plug 'scrooloose/nerdtree'
-	Plug 'samoshkin/vim-lastplace'                 " 파일을 열때 마지막 상태로 불러들임
-	Plug 'vim-scripts/CursorLineCurrentWindow'
-	Plug 'tpope/vim-obsession'                     " write current state of vim: window position, open folds
-	" Plug 'tpope/vim-sensible'
+        Plug 'mhinz/vim-startify'                        " fancy start screen for vim
+        Plug 'junegunn/goyo.vim'
+        Plug 'junegunn/limelight.vim'
+        " Plug 'junegunn/vim-journal'
 
-	" Search:
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-	" Plug 'junegunn/vim-slash'                    " 검색된 결과를 강조(highlight), 커서가 벗어나면 강조해제
-	Plug 'dyng/ctrlsf.vim'                       " :CtrlSF {pattern} ~/Sync
-	Plug 'justinmk/vim-sneak'					 " rapid jump around buffer
-	
-	" GIT:
-	Plug 'tpope/vim-fugitive'
-	Plug 'junegunn/gv.vim'                       " git commit browser :GV | GV! | GV?
-	Plug 'airblade/vim-gitgutter'                " show git diff in the 'gutter' (sign colume)
+        " Shell:
+        Plug 'scrooloose/nerdtree'
+        Plug 'samoshkin/vim-lastplace'                 " 파일을 열때 마지막 상태로 불러들임
+        Plug 'vim-scripts/CursorLineCurrentWindow'
+        Plug 'tpope/vim-obsession'                     " write current state of vim: window position, open folds
+        " Plug 'tpope/vim-sensible'
+
+        " Search:
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+        Plug 'junegunn/vim-slash'                    " 검색된 결과를 강조(highlight), 커서가 벗어나면 강조해제
+        Plug 'dyng/ctrlsf.vim'                       " :CtrlSF {pattern} ~/Sync
+        Plug 'justinmk/vim-sneak'                                        " rapid jump around buffer
+
+        " GIT:
+        Plug 'tpope/vim-fugitive'
+        Plug 'junegunn/gv.vim'                       " git commit browser :GV | GV! | GV?
+        Plug 'airblade/vim-gitgutter'                " show git diff in the 'gutter' (sign colume)
 
     " Keyboard:
-	" Plug 'SirVer/ultisnips'
-	" Plug 'honza/vim-snippets'
-	" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-	" Plug 'ervandew/supertab'
-	Plug 'tpope/vim-commentary'
-	" Plug 'tpope/vim-surround'                    " surroundings: parentheses, brackets, quotes, XML tabs and more
-	                                             " cs"'|cs'<q>|ysiw]|cs]{|yssb
+        Plug 'SirVer/ultisnips'
+        Plug 'honza/vim-snippets'
+        Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+        Plug 'ervandew/supertab'
+        Plug 'tpope/vim-commentary'
+        Plug 'tpope/vim-surround'                    " surroundings: parentheses, brackets, quotes, XML tabs and more
+                                                     " cs"'|cs'<q>|ysiw]|cs]{|yssb
                                                  " or yss)|ysiw<em>|visual mode S<p class="important">
-	Plug 'jiangmiao/auto-pairs'                  " pair brackets,parens,quotes
-        Plug 'vim-scripts/AutoComplPop'              " https://www.youtube.com/watch?v=2f8h45YR494
+        Plug 'jiangmiao/auto-pairs'                  " pair brackets,parens,quotes
+    Plug 'vim-scripts/AutoComplPop'              " https://www.youtube.com/watch?v=2f8h45YR494
 
-	" Display:
-	" Plug 'junegunn/rainbow_parentheses.vim'      " 중첩된 괄호를 색깔별로 표시
-	" Plug 'Yggdroot/indentLine'					 " display indent line
-	" Plug 'dkarter/bullets.vim'                    " plugin settings 참조
+        " Display:
+        Plug 'junegunn/rainbow_parentheses.vim'      " 중첩된 괄호를 색깔별로 표시
+        Plug 'Yggdroot/indentLine'                                       " display indent line
+        Plug 'dkarter/bullets.vim'                    " plugin settings 참조
 
-	" VimWiki:
-	Plug 'vimwiki/vimwiki'                       " <leader>ww|wt|w<leader>
-	Plug 'mattn/calendar-vim'
-	Plug 'tpope/vim-speeddating'
+        " VimWiki:
+        Plug 'vimwiki/vimwiki'                       " <leader>ww|wt|w<leader>
+        Plug 'mattn/calendar-vim'
+        Plug 'tpope/vim-speeddating'
 
 call plug#end()
 
@@ -184,7 +181,7 @@ call plug#end()
 " Simple Plugin Configuration: {{{
 "
 " Color Scheme Settings :Colors로 변경 가능
-colorscheme gruvbox-material
+colorscheme gruvbox
 " colorscheme Tomorrow-Night
 
 " Airline
@@ -198,14 +195,11 @@ let g:SuperTabDefaultCompletionType = "<C-n>"
 " vim-sneak: sab --> ab 발생장소에 특정 기호가 표시됨, 이동 용이
 let g:sneak#label = 1
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<C-x>"
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsListSnippets="<C-p>"
-" let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-let g:UltiSnipsEditSplit = 'vertical'
+" Ultisnips : default settings 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 
 " indentLine
@@ -350,30 +344,30 @@ endfunction
 " FZF: command-line fuzzy finder {{{
 " fzf command-line {{{
 " Ctrl-T : paste the selected files and directories on to the command-line
-"	- FZF_CTRL_T_COMMAND : to override the default command
-"	- FZF_CTRL_T_OPTS : to pass additional options
+"       - FZF_CTRL_T_COMMAND : to override the default command
+"       - FZF_CTRL_T_OPTS : to pass additional options
 " CTRL-R : paste the selected command from history onto the command-line
-"	- FZF_CTRL_R_OPTS : to pass additional options
+"       - FZF_CTRL_R_OPTS : to pass additional options
 " ALT-C : cd into the selected directory
-"	- FZF_ALT_C_COMMAND : to oerverride the default command
-"	- FZF_ALT_C_OPTS : to pass additional options
-" }}} 
+"       - FZF_ALT_C_COMMAND : to oerverride the default command
+"       - FZF_ALT_C_OPTS : to pass additional options
+" }}}
 " fzf.vim 명령어 설명 {{{
-" :Files [PATH]		Files, runs $FZF_DEFAULT_COMMAND if defined
-" :GFiles [OPTS]	git ls-files
-" :GFiles?			git status
-" :Buffers			open buffers
-" :Colors			color schemes
-" :Ag [PATTERN]		ag search result (ALT-A select all, ALT-D deselect all)
-" :Rg [PATTERN]		rg search result (ALT-A, ALT-D)
-" :Lines [QUERY]	lines in loaded buffers
-" :BLines [QUERY]	Lines in the current buffer
-" :Tags, BTags		tags in the project (ctags -R)
+" :Files [PATH]         Files, runs $FZF_DEFAULT_COMMAND if defined
+" :GFiles [OPTS]        git ls-files
+" :GFiles?                      git status
+" :Buffers                      open buffers
+" :Colors                       color schemes
+" :Ag [PATTERN]         ag search result (ALT-A select all, ALT-D deselect all)
+" :Rg [PATTERN]         rg search result (ALT-A, ALT-D)
+" :Lines [QUERY]        lines in loaded buffers
+" :BLines [QUERY]       Lines in the current buffer
+" :Tags, BTags          tags in the project (ctags -R)
 " :Marks
 " :Windows
 " :History
-" :Snipopets		snippets (UltiSnips)
-" :Commitsi			git commits (requires fugitive.vim)
+" :Snipopets            snippets (UltiSnips)
+" :Commitsi                     git commits (requires fugitive.vim)
 " :Maps
 " :Filetypes
 " }}}
@@ -465,7 +459,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:vimwiki_folding = ''
 let g:vimwiki_global_ext=0
 let g:vimwiki_hl_cb_checked=2
-let g:vimwiki_listsyms = '✗○◐●✓'
 
 " change [Enter] key to <leader>ll
 nmap <leader>l <Plug>VimwikiFollowLink
@@ -640,7 +633,7 @@ let g:bullets_line_spacing = 2                   " default = 1
 
 let g:bullets_pad_right = 0                        " bullet 이후 공백자동 추가(안함)
 let g:bullets_max_alpha_characters = 1             " a --> z, aa, ab (z까지만 사용)
-let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-', 'std*', 'std+'] 
+let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-', 'std*', 'std+']
                                                    " default : bullet으로 사용가능한 종류
 let g:bullets_renumber_on_change = 1               " default = 1
 let g:bullets_nested_checkboxes = 1                " default = 1
@@ -749,4 +742,3 @@ iabbr lanzhaoxia  兰朝霞
 iabbr 통역        兰朝霞
 
 " }}}
-

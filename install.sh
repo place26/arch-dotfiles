@@ -5,10 +5,13 @@ curl -L https://nixos.org/nix/install | sh
 . ~/.nix-profile/etc/profile.d/nix.sh
 
 # install packages
+# for MacOS
 nix-env -iA \
 	nixpkgs.zsh \
 	nixpkgs.which \
 	nixpkgs.antibody \
+    # nixpkgs.wireguard-go \
+    nixpkgs.wireguard-tools \
 	nixpkgs.git \
 	nixpkgs.neovim \
 	nixpkgs.tmux \
@@ -39,8 +42,8 @@ sudo chsh -s $(which zsh) $USER
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
 # install neovim plugins
-nvim --headless +PlugInstall +qall
+# nvim --headless +PlugInstall +qall
 
 # install tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-tmux source ~/.tmux.conf
+# git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+# tmux source ~/.tmux.conf
